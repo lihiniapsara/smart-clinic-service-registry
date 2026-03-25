@@ -3,9 +3,14 @@ spring:
     name: service-registry
 
   config:
-    import: "configserver:"
+    import: "optional:configserver:"
 
   cloud:
     config:
-      uri: http://localhost:9000
+      uri: ${CONFIG_SERVER_URIS}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URLS}
 
